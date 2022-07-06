@@ -1,4 +1,4 @@
-import {controller, endpoint} from "./jet";
+import {controller, endpoint} from "./jetto";
 
 interface HelloInput {
     name: string;

@@ -2,8 +2,8 @@
 {
   "name": "jetto",
   "version": "0.0.1",
-  "main": "build/jet.js",
-  "types": "jet.d.ts",
+  "main": "build/jetto.js",
+  "types": "jetto.d.ts",
   "author": "Soroosh Sarabadani",
   "license": "MIT",
   "dependencies": {
