@@ -13,7 +13,11 @@ export function controller(target: any) {
     targetObjects.set(Object.getPrototypeOf(object), object)
 }
 
-export function endpoint(path: string) {
+interface EndpointParameters {
+    path: string,
+    method?: "get" | "post" | "patch" | "delete" | "put"
+}
+export function endpoint({path,method}: EndpointParameters) {
     console.log("endpoint called")
     return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
         const method = descriptor.value;
