@@ -1,25 +1,26 @@
 import {controller, endpoint} from "./jet";
 
+interface HelloInput {
+    name: string;
+    lastName: string;
+}
 
 @controller
 class HomeController {
     score: number = 0
 
-    @endpoint({path: "/"})
-    home(req: any, res: any) {
-        res.send(`Hello ${this.score++}`)
+    @endpoint({path: "/", method: "post"})
+    home(input: HelloInput, res: any) {
+        res.send(`Hello ${input.name} ${this.score++}`)
     }
 }
 
-interface HelloInput {
-
-}
 
 @controller
 class ByeController {
     score: number = 0
 
-    @endpoint({path: "/bye"})
+    @endpoint({path: "/bye", method: "get"})
     home(req: any, res: any) {
         res.send(`Bye ${this.score++}`)
     }
