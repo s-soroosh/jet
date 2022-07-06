@@ -8,12 +8,12 @@ const app = express();
 
 app.listen(3000);
 
-const targetObjects: any[] = [];
+const targetObjects: Map<any, any> = new Map;
 
-function controller(target:any){
+function controller(target: any) {
     console.log("controller annotated")
     const object = new target();
-    targetObjects.push(object)
+    targetObjects.set(Object.getPrototypeOf(object), object)
 }
 
 function endpoint(path: string) {
@@ -21,17 +21,18 @@ function endpoint(path: string) {
     return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
         const method = descriptor.value;
         app.get(path, (req, res) => {
-            console.log(Object.getPrototypeOf(targetObjects[0])  == target)
-            method.apply(targetObjects[0],[req,res])}
+                console.log(targetObjects.get(target))
+                method.apply(targetObjects.get(target), [req, res])
+            }
         )
     };
 }
 
 
-
 @controller
 class HomeController {
     score: number = 0
+
     @endpoint("/")
     home(req: any, res: any) {
         res.send(`Hello ${this.score++}`)
@@ -39,9 +40,12 @@ class HomeController {
 }
 
 
+@controller
 class ByeController {
-    // @endpoint("/bye")
+    score: number = 0
+
+    @endpoint("/bye")
     home(req: any, res: any) {
-        res.send("Bye")
+        res.send(`Bye ${this.score++}`)
     }
 }
