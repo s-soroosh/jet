@@ -1,0 +1,1 @@
+export {controller, endpoint } from './jetto'
