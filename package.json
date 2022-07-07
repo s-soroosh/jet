@@ -1,7 +1,6 @@
-
 {
   "name": "jetto",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "main": "build/jetto.js",
   "types": "jetto.d.ts",
   "author": "Soroosh Sarabadani",
