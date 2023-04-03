@@ -6,7 +6,7 @@ interface HelloInput {
     lastName: string;
 }
 
-@controller
+@controlle. r
 class HomeController {
     score: number = 0
 
