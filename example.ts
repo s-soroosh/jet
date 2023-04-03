@@ -1,5 +1,12 @@
 import {controller, endpoint} from "./jetto";
-syntax error
+import {controller, endpoint} from "./jetto";
+import {controller, endpoint} from "./jetto";
+import {controller, endpoint} from "./jetto";
+import {controller, endpoint} from "./jetto";
+import {controller, endpoint} from "./jetto";
+import {controller, endpoint} from "./jetto";
+import {controller, endpoint} from "./jetto";
+import {controller, endpoint} from "./jetto";
 
 interface HelloInput {
     name: string;
