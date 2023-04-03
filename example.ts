@@ -1,5 +1,4 @@
 import {controller, endpoint} from "./jetto";
-syntax error
 
 interface HelloInput {
     name: string;
